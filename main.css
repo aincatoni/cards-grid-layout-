@@ -4,12 +4,16 @@
     box-sizing: border-box;
 }
 
+:root {
+    --gray-pcf: #F1F3F4;
+}
+
 body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
-.container {
-    background-color: rgb(233, 232, 232);
+.container-cards {
+/*     background-color: rgb(233, 232, 232); */
     min-width: 100vw;
     min-height: 100vh;
     width: 100%;
@@ -21,23 +25,25 @@ body {
 
 .grid {
     max-width: 768px;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-    padding: 20px 5px;
+    padding: 20px;
 }
 
 
 .cards{
     display: grid;
+    place-items: center;
     gap: 0.5em;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
 
 }
 
 .card {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, 1fr);
-    min-height: 150px;
-    padding: 5px 10px;
+    width: 90%;
+    max-width: 300px;
+    min-height: 170px;
     box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 10%);
     transition: .3s;
 }
@@ -46,24 +52,45 @@ body {
     box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 15%)
 }
 
+.imageCard {
+/*     outline: 1px solid black; */
+    width: 100%;
+    height: 100px;
+}
+
+.imageCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.textCard {
+    padding: 10px 10px 25px 10px;
+}
+
+.textCard h2 {
+    font-size: 1.2em;
+}
+
 #big {
-    background-color: palegreen;
+    background-color: var(--gray-pcf);
 }
 
 #smallOne{
-    background-color: paleturquoise;
+    background-color: var(--gray-pcf);
 
 }
 #smallTwo{
-    background-color: magenta;
+    background-color: var(--gray-pcf);
 
 }
 
 #smallThree{
-    background-color: yellow;
+    background-color: var(--gray-pcf);
 }
 #smallFour{
-    background-color: rgb(45, 45, 45);
+    background-color: var(--gray-pcf);
 }
 
 
@@ -71,31 +98,46 @@ body {
 
     .grid{
         padding: 20px 10px;
-        max-width: 1440px;
+        max-width: 900px;
         width: 100%;
-        
+    }
+
+    .cards {
+        grid-template-columns: 250px 250px 150px 150px;
+        grid-template-rows: repeat(9, 40px);
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+        max-width: 1000px;
     }
 
     #big {
-        background-color: palegreen;
+        display: flex;
+        align-items: center;
+        justify-content:flex-start;
+        gap: 10px;
         grid-area: 1 / 1 / span 8 / span 2;
+    }
+
+    #big .imageCard {
+        height: 100%;
+        width: 250px;
+        margin: 0 30px 0 0;
     }
     
     #smallOne{
-        background-color: paleturquoise;
         grid-area:  1 / 3 / span 4 / span 1 ;
     }
     #smallTwo{
-        background-color: magenta;
         grid-area:  1 / 4 / span 4 / span 1 ;
     }
     
     #smallThree{
-        background-color: yellow;
         grid-area:  5 / 3 / span 4 / span 1 ;
     }
     #smallFour{
-        background-color: rgb(45, 45, 45);
         grid-area:  5 / 4 / span 4 / span 1 ;
     }
 
